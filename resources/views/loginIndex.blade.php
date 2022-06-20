@@ -4,7 +4,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ログイン画面</title>
 </head>
-<h1>ログイン画面</h1>
+
+<table>
+    <tr>
+        <td>
+            <h1>ログイン画面</h1>
+        </td>
+        <td>
+            <a href="http://localhost:8080/sign_up">新規登録はこちら</a>
+        </td>
+    </tr>
+</table>
+
 <p>ユーザーID、パスワードをご入力の上「ログイン」ボタンを押してください。</p>
 
 <input type="id" name="user_id" placeholder="ユーザーID">

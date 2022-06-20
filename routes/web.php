@@ -15,4 +15,7 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/',[LoginController::class, 'loginIndex'])->name('loginIndex');
+Route::get('/sign_up',[LoginController::class, 'form'])->name('form');
+Route::post('store/sign_up',[LoginController::class, 'signUp'])->name('signUp');
+
 
