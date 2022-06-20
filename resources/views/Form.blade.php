@@ -27,8 +27,20 @@
                 <td><input type="text" name="address" placeholder="住所"></td>
 
             <tr>
+
+            <tr>
+                <td><h2>パスワード：</h2></td>
+                <td><input type="password" name="password" placeholder="パスワード"></td>
+            </tr>
+            <tr>
+                <td><h2>パスワード確認用：</h2></td>
+                <td><input type="password" name="comfirmed" placeholder="パスワード確認用"></td>
+            </tr>
+
+            <tr>
                     <input type="submit" value="登録">
             </tr>
+            
         </table>
     </div>
     </form>

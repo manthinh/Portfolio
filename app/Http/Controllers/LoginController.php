@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\User;
+use App\Http\Requests\PostRequest;
+
 class LoginController extends Controller
 {
     public function loginIndex() {
@@ -11,15 +14,21 @@ class LoginController extends Controller
     }
 
     public function form() {
-        return view('Form',[
+        return view('form',[
             'name' => '新規登録',
             'email' => '新規登録',
             'address' => '新規登録'
         ]);
     }
 
-    public function signUp() {
-        return view('Form');
+    public function signUp(PostRequest $request) {
+        $user = User::form([
+            'name' => $request->name,
+            'email' => $request->email,
+            'address' => $request->address,
+        ]);
+
+        return redirect()->route('form');
     }
 
 }
