@@ -16,8 +16,6 @@ use Illuminate\Support\Facades\Auth;
 */
 
 
-//認証機能
-Auth::routes();
 
 
 Route::get('/',[LoginController::class, 'loginIndex'])->name('loginIndex');
