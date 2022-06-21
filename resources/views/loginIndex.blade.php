@@ -11,7 +11,7 @@
             <h1>ログイン画面</h1>
         </td>
         <td>
-            <a href="http://localhost:8080/sign_up">新規登録はこちら</a>
+            <a href="http://localhost:8080/sign-up">新規登録はこちら</a>
         </td>
     </tr>
 </table>

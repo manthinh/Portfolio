@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,19 @@ use App\Http\Controllers\LoginController;
 |
 */
 
+
+//認証機能
+Auth::routes();
+
+
 Route::get('/',[LoginController::class, 'loginIndex'])->name('loginIndex');
-Route::get('/sign_up',[LoginController::class, 'form'])->name('form');
-Route::post('store/sign_up',[LoginController::class, 'signUp'])->name('signUp');
+
+Route::get('/sign-up',[LoginController::class, 'form'])->name('form');
+Route::post('store/sign-up',[LoginController::class, 'signUp'])->name('signUp');
+
+
+
+
+
 
 
