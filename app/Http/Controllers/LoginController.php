@@ -24,7 +24,13 @@ class LoginController extends Controller
             'address' => $request->input('address'),
             'password' =>$request->input('password'),
             ]);
-            // dd($user);
+
+            $validate_rule = $request->validate([
+                'name' => 'required|max10',
+                'email' => 'required|max10',
+                'address' => 'required|max10',
+                'password' => 'required|max6',
+            ]);
 
         return redirect()->route('loginIndex');
     }
