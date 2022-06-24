@@ -30,7 +30,7 @@
 
             <tr>
                 <td><h2>Eメール：</h2></td>
-                <td><input type="text" name="email" placeholder="eメール"></td>
+                <td><input type="email" name="email" placeholder="eメール"></td>
             </tr>
 
             <tr>
@@ -45,7 +45,7 @@
             </tr>
             <tr>
                 <td><h2>パスワード確認用：</h2></td>
-                <td><input type="password" name="comfirmed" placeholder="パスワード確認用"></td>
+                <td><input type="password" name="comfirm-password" placeholder="パスワード確認用"></td>
             </tr>
 
             <tr>

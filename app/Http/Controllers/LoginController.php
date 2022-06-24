@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginUserCreateRequest;
+// use App\Http\Requests\PostRequest;
 
 use App\Models\User;
-// use App\Http\Requests\PostRequest;
 
 class LoginController extends Controller
 {
+    protected $loginUserCreateRequest;
+
+
     public function loginIndex() {
         return view('loginIndex',);
     }
@@ -17,20 +22,16 @@ class LoginController extends Controller
         return view('login.form');
     }
     
-    public function signUp(Request $request) {
+    public function signUp(LoginUserCreateRequest $request) {
+        $validated = $request->validated();
+        dd($validated['name'],$validated['email']);
         $user = User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'address' => $request->input('address'),
-            'password' =>$request->input('password'),
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'address' => $validated['address'] ,
+            'password' => $validated['password'],
             ]);
-
-            $validate_rule = $request->validate([
-                'name' => 'required|max10',
-                'email' => 'required|max10',
-                'address' => 'required|max10',
-                'password' => 'required|max6',
-            ]);
+            dd($user);
 
         return redirect()->route('loginIndex');
     }
