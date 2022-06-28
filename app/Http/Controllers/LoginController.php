@@ -15,7 +15,7 @@ class LoginController extends Controller
 
 
     public function loginIndex() {
-        return view('loginIndex',);
+        return view('login.loginIndex');
     }
 
     public function form() {

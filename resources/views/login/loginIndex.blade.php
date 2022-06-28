@@ -21,4 +21,3 @@
 <input type="id" name="user_id" placeholder="ユーザーID">
 <input type="password" name="password" placeholder="パスワード">
 <input type="submit" value="ログイン"　class = button>
-
