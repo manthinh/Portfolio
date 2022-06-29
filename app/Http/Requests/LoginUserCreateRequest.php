@@ -28,7 +28,7 @@ class LoginUserCreateRequest extends FormRequest
             'email' => 'required|max:20',
             'address' => 'required|max:10',
             'password' => 'required|min:6',
-            'confirm-password' => 'required|min:6',
+            'confirm-password' => 'required|same:password',
         ];
     }
 
@@ -43,6 +43,8 @@ class LoginUserCreateRequest extends FormRequest
             'address.max:10' => '10文字以内で入力してください',
             'password.required' => 'パスワードは入力必須です。',
             'password.min6' => '6文字以上で入力してください。',
+            'confirm-password.required' => '確認用パスワードは入力必須です。',
+            'confirm-password.same:password' => 'パスワードとパスワード確認用が一致しません。',
         ];
     }
 }
