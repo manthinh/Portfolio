@@ -1,4 +1,7 @@
-
+@extends('layouts.app')
+@section('body')
+@section('title','新規登録フォーム')
+    
 <form action="{{ route('signUp')}}" method="post">
     @csrf
     
@@ -30,7 +33,7 @@
                     </tr>
                     <tr>
                         <td><h2>パスワード確認用：</h2></td>
-                        <td><input type="password" name="comfirm-password" placeholder="パスワード確認用"></td>
+                        <td><input type="password" name="confirm-password" placeholder="パスワード確認用"></td>
                     </tr>
                     
                     <tr>
@@ -41,3 +44,4 @@
             </div>
         </form>
     </body>
+@endsection

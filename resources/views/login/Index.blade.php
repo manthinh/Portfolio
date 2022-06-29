@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+@extends('layouts.app')
+@section('body')
+@section('title','ログイン画面')
 <head>
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +13,7 @@
             <h1>ログイン画面</h1>
         </td>
         <td>
-            <a href="http://localhost:8080/sign-up">新規登録はこちら</a>
+            <a href="{{ route('form')}}">新規登録はこちら</a>
         </td>
     </tr>
 </table>

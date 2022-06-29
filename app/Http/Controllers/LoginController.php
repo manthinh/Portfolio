@@ -8,14 +8,13 @@ use App\Http\Requests\LoginUserCreateRequest;
 // use App\Http\Requests\PostRequest;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    protected $loginUserCreateRequest;
-
 
     public function loginIndex() {
-        return view('login.loginIndex');
+        return view('login.Index');
     }
 
     public function form() {
@@ -24,16 +23,16 @@ class LoginController extends Controller
     
     public function signUp(LoginUserCreateRequest $request) {
         $validated = $request->validated();
-        dd($validated['name'],$validated['email']);
+        // dd($validated);
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'address' => $validated['address'] ,
-            'password' => $validated['password'],
+            'address' => $validated['address'],
+            'password' => Hash::make($validated['password']),
             ]);
             dd($user);
 
-        return redirect()->route('loginIndex');
+        return redirect()->route('login.form');
     }
 
 }

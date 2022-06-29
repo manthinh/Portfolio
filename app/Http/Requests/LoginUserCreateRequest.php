@@ -6,7 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class LoginUserCreateRequest extends FormRequest
 {
-        protected $errorBag = 'saveUser';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,11 +24,11 @@ class LoginUserCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required','max:10'],
-            'email' => ['required','max:20'],
-            'address' => ['required','max:10'],
-            'password' => ['required','min:6'],
-            'confirm-password' =>['required','min6']
+            'name' => 'required|max:10',
+            'email' => 'required|max:20',
+            'address' => 'required|max:10',
+            'password' => 'required|min:6',
+            'confirm-password' => 'required|min:6',
         ];
     }
 

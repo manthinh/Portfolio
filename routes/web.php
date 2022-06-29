@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/',[LoginController::class, 'loginIndex'])->name('loginIndex');
 
 Route::get('/sign-up',[LoginController::class, 'form'])->name('form');
-Route::post('store/sign-up',[LoginController::class, 'signUp'])->name('signUp');
+Route::post('/store/sign-up',[LoginController::class, 'signUp'])->name('signUp');
 
 
 
