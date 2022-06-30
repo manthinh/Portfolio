@@ -36,15 +36,15 @@ class LoginUserCreateRequest extends FormRequest
     {
         return [
             'name.required' => '名前は入力必須です。',
-            'name.max:10' => '20文字以内で入力してください。',
+            'name.max' => '10文字以内で入力してください。',
             'email.required' => 'Eメールは入力必須です。',
-            'email.max:20' => '20文字以内で入力してください。',
+            'email.max' => '20文字以内で入力してください。',
             'address.required' => '住所は入力必須です。',
-            'address.max:10' => '10文字以内で入力してください',
+            'address.max' => '10文字以内で入力してください',
             'password.required' => 'パスワードは入力必須です。',
-            'password.min6' => '6文字以上で入力してください。',
+            'password.min' => '6文字以上で入力してください。',
             'confirm-password.required' => '確認用パスワードは入力必須です。',
-            'confirm-password.same:password' => 'パスワードとパスワード確認用が一致しません。',
+            'confirm-password.same' => 'パスワードとパスワード確認用が一致しません。',
         ];
     }
 }
