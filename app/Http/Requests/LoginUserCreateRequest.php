@@ -24,10 +24,10 @@ class LoginUserCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:10',
-            'email' => 'required|max:20',
-            'address' => 'required|max:10',
-            'password' => 'required|min:6',
+            'name' => 'required',
+            'email' => 'required|max:30',
+            'address' => 'required',
+            'password' => 'required|min:6|',
             'confirm-password' => 'required|same:password',
         ];
     }
@@ -36,13 +36,12 @@ class LoginUserCreateRequest extends FormRequest
     {
         return [
             'name.required' => '名前は入力必須です。',
-            'name.max' => '10文字以内で入力してください。',
             'email.required' => 'Eメールは入力必須です。',
-            'email.max' => '20文字以内で入力してください。',
+            'email.max' => '30文字以内で入力してください。',
             'address.required' => '住所は入力必須です。',
-            'address.max' => '10文字以内で入力してください',
             'password.required' => 'パスワードは入力必須です。',
             'password.min' => '6文字以上で入力してください。',
+            'password.regex' => '英数字大文字を含めてください。',
             'confirm-password.required' => '確認用パスワードは入力必須です。',
             'confirm-password.same' => 'パスワードとパスワード確認用が一致しません。',
         ];

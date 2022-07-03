@@ -5,18 +5,12 @@
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title') -ログイン画面</title>
+        <link rel="stylesheet" href="{{ asset('css/app.css')}}">
 </head>
 
-<table>
-    <tr>
-        <td>
+
             <h1>ログイン画面</h1>
-        </td>
-        <td>
-            <a href="{{ route('form')}}">新規登録はこちら</a>
-        </td>
-    </tr>
-</table>
+            <a href="{{ route('sign-up.form')}}">新規登録はこちら</a>
 
 <p>ユーザーID、パスワードをご入力の上「ログイン」ボタンを押してください。</p>
 
