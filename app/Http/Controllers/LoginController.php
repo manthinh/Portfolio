@@ -20,7 +20,13 @@ class LoginController extends Controller
     public function form() {
         return view('login.form');
     }
+
+    public function confirm() {
+        return view('login.confirm');
+    }
     
+
+
     public function signUp(LoginUserCreateRequest $request) {
         $validated = $request->validated();
         // dd($validated);
@@ -30,9 +36,9 @@ class LoginController extends Controller
             'address' => $validated['address'],
             'password' => Hash::make($validated['password']),
             ]);
-            dd($user);
+            // dd($user);
 
-        return redirect()->route('login.form');
+        return redirect()->route('sign-up.confirm');
     }
 
 }

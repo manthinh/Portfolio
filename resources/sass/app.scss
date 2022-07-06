@@ -1,9 +1,12 @@
 h1 {
-    color: grey;
     display: inline-block;
 }
 
 .wrap {
     display:flex;
     flex-flow: column;
+}
+
+.form {
+    display: inline-block;
 }
