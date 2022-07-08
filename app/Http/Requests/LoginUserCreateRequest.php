@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Password;
 
 class LoginUserCreateRequest extends FormRequest
 {
@@ -24,11 +25,11 @@ class LoginUserCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|max:30',
-            'address' => 'required',
-            'password' => 'required|min:6|',
-            'confirm-password' => 'required|same:password',
+            'name' => ['required'],
+            'email' => ['required','max:30'],
+            'address' => ['required'],
+            'password' => ['required','max:128',Password::min(6)->mixedCase()],
+            'confirm-password' => ['required','same:password'],
         ];
     }
 
@@ -41,7 +42,6 @@ class LoginUserCreateRequest extends FormRequest
             'address.required' => '住所は入力必須です。',
             'password.required' => 'パスワードは入力必須です。',
             'password.min' => '6文字以上で入力してください。',
-            'password.regex' => '英数字大文字を含めてください。',
             'confirm-password.required' => '確認用パスワードは入力必須です。',
             'confirm-password.same' => 'パスワードとパスワード確認用が一致しません。',
         ];
