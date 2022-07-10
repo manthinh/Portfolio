@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\mixedCase;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 
@@ -28,7 +29,7 @@ class LoginUserCreateRequest extends FormRequest
             'name' => ['required'],
             'email' => ['required','max:30'],
             'address' => ['required'],
-            'password' => ['required','max:128',Password::min(6)->mixedCase()],
+            'password' => ['required','max:128', new mixedCase()],
             'confirm-password' => ['required','same:password'],
         ];
     }
