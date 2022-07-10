@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('body')
 @section('title','新規登録フォーム')
-<link rel="stylesheet" href="{{ asset('css/app.css')}}">
 <form action="{{ route('sign-up.signUp')}}" method="post">
     @csrf
     

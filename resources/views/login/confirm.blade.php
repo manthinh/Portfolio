@@ -2,3 +2,7 @@
 @section('body')
 @section('title','新規登録確認画面')
 <h1>会員登録完了</h1>
+<a href="{{ route('loginIndex')}}">ログイン画面に戻る</a>
+@foreach ($usersInfo as $userInfo)
+    <h1>{{$userInfo->name}}</h1>
+@endforeach
