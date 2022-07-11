@@ -37,7 +37,7 @@ class LoginController extends Controller
         public function confirm(Request $request) {
             $value = $request->session()->get('usersInfo');
             // dd($value);
-            return view('login.confirm');
+            return view('login.confirm',compact('value'));
         }
 
 }

@@ -1,5 +1,6 @@
 h1 {
   display: inline-block;
+  text-align: center;
 }
 
 .wrap {
@@ -9,4 +10,10 @@ h1 {
 
 .form {
   display: inline-block;
+}
+
+.Title {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
 }
