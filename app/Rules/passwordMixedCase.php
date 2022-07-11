@@ -4,7 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class mixedCase implements Rule
+class passwordMixedCase implements Rule
 {
     /**
      * Create a new rule instance.

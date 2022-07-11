@@ -23,22 +23,21 @@ class LoginController extends Controller
     
     public function signUp(LoginUserCreateRequest $request) {
         $validated = $request->validated();
-        // dd($validated);
+        $value = $request->session()->put('usersInfo',$validated);
+        // dd($validated,$value);
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'address' => $validated['address'],
             'password' => Hash::make($validated['password']),
             ]);
-            // dd($user);
-            
             return redirect()->route('sign-up.confirm');
         }
         
         public function confirm(Request $request) {
-            $currentUser = $request->session()->get('user');
-            $usersInfo = User::where('name',$currentUser)->get();
-            return view('login.confirm', compact('usersInfo'));
+            $value = $request->session()->get('usersInfo');
+            // dd($value);
+            return view('login.confirm');
         }
 
 }

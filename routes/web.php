@@ -28,7 +28,7 @@ Route::name('sign-up.')->group(function () {
 });
 
 // ログイン機能
-Route::name('login')->group(function (){
+Route::name('login.')->group(function (){
 
 });
 
