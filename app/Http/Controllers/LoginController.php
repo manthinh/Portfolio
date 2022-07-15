@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginUserCreateRequest;
-// use App\Http\Requests\PostRequest;
+use App\Http\Requests\LoginRequest;
+
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -16,6 +17,20 @@ class LoginController extends Controller
     public function loginIndex() {
         return view('login.Index');
     }
+
+    // public function signIn(LoginRequest $request) {
+    //     $userName =  $request->validated('email');
+    //     $password =  $request->validated('password');
+    //     $user = User::where('email',$userName)->first();
+    //     dd($userName,$password,$user);
+    //     if ($userName === $user->email && $user->password) {
+    //         $request->session()->put('doneLogin',$user->id);
+    //         return redirect()->route('myPage.myPage');
+    //     }
+    //     session()->flash('flash_massage','登録済みのEメールとパスワードが一致しません。');
+    //     return redirect()->route('loginIndex');
+        
+    // }
 
     public function form() {
         return view('login.form');

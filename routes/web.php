@@ -24,12 +24,17 @@ Route::name('sign-up.')->group(function () {
     Route::get('/sign-up',[LoginController::class, 'form'])->name('form');
     Route::post('/store/sign-up',[LoginController::class, 'signUp'])->name('signUp');
     Route::get('/store/sign-up/confirm',[LoginController::class, 'confirm'])->name('confirm');
-
+    
 });
 
 // ログイン機能
 Route::name('login.')->group(function (){
+    Route::post('/sign-in',[LoginController::class, 'signIn'])->name('signIn');
+});
 
+// マイページ
+Route::name('myPage.')->group(function (){
+    Route::get('myPage',[LoginController::class, 'myPage'])->name('myPage');
 });
 
 
