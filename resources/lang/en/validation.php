@@ -129,6 +129,8 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
+    'mixedCase' => ':attribute は半角英数字で入力してください',
+
 
     /*
     |--------------------------------------------------------------------------
@@ -158,6 +160,12 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => '名前',
+        'email' => 'Eメール',
+        'address' => '住所',
+        'password' => 'パスワード',
+        'confirm-password' =>'確認用パスワード',
+    ],
 
 ];

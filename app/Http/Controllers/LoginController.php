@@ -2,11 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginUserCreateRequest;
+// use App\Http\Requests\PostRequest;
+
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    public function test() {
-        return null;
+
+    public function loginIndex() {
+        return view('login.Index');
     }
+
+    public function form() {
+        return view('login.form');
+    }
+    
+    public function signUp(LoginUserCreateRequest $request) {
+        $validated = $request->validated();
+        $value = $request->session()->put('usersInfo',$validated);
+        // dd($validated,$value);
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'address' => $validated['address'],
+            'password' => Hash::make($validated['password']),
+            ]);
+            return redirect()->route('sign-up.confirm');
+        }
+        
+        public function confirm(Request $request) {
+            $value = $request->session()->get('usersInfo');
+            // dd($value);
+            return view('login.confirm',compact('value'));
+        }
+
 }

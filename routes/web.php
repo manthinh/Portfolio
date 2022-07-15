@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::get('/',[LoginController::class, 'loginIndex'])->name('loginIndex');
+
+//新規登録機能
+Route::name('sign-up.')->group(function () {
+    Route::get('/sign-up',[LoginController::class, 'form'])->name('form');
+    Route::post('/store/sign-up',[LoginController::class, 'signUp'])->name('signUp');
+    Route::get('/store/sign-up/confirm',[LoginController::class, 'confirm'])->name('confirm');
+
 });
+
+// ログイン機能
+Route::name('login.')->group(function (){
+
+});
+
+
+
+
+
+
+
