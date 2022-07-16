@@ -2,4 +2,7 @@
 @section('body')
 @section('title','マイページ')
 
-<h1>マイページです</h1>
+<h1>
+    マイページです
+</h1>
+@endsection

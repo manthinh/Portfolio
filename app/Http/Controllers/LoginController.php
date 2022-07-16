@@ -18,19 +18,24 @@ class LoginController extends Controller
         return view('login.Index');
     }
 
-    // public function signIn(LoginRequest $request) {
-    //     $userName =  $request->validated('email');
-    //     $password =  $request->validated('password');
-    //     $user = User::where('email',$userName)->first();
-    //     dd($userName,$password,$user);
-    //     if ($userName === $user->email && $user->password) {
-    //         $request->session()->put('doneLogin',$user->id);
-    //         return redirect()->route('myPage.myPage');
-    //     }
-    //     session()->flash('flash_massage','登録済みのEメールとパスワードが一致しません。');
-    //     return redirect()->route('loginIndex');
+    public function signIn(Request $request) {
+        $email =  $request->input('email');
+        $password =  $request->input('password');
+        // dd($validated['password']);
+        $userInfo = User::where('email',$email)->first();
+        // dd($userInfo);
+        if ($userInfo && Hash::check($password,$userInfo->password)) {
+            $request->session()->put('doneLogin',$userInfo->id);
+            return redirect()->route('myPage.myPage');
+        }
+        session()->flash('flash_massage','登録済みのEメールとパスワードが一致しません。');
+        return redirect()->route('loginIndex');
         
-    // }
+    }
+    
+    public function myPage() {
+    return view('myPage');
+    }
 
     public function form() {
         return view('login.form');
@@ -51,7 +56,6 @@ class LoginController extends Controller
         
         public function confirm(Request $request) {
             $value = $request->session()->get('usersInfo');
-            // dd($value);
             return view('login.confirm',compact('value'));
         }
 
