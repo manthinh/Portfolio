@@ -14,6 +14,6 @@
 
     <input type="password" name="password" placeholder="パスワード" required>
 
-    <input type="submit" value="ログイン"　class = button>
+    <input type="submit" value="ログイン">
 </form>
 @endsection

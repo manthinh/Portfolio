@@ -15,7 +15,6 @@ class AdminController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
         $adminsInfo = Admin::where('email',$email)->first();
-        // dd($adminsInfo);
         if ($adminsInfo && $password) {
             $request->session()->put('doneLogin',$adminsInfo->id);
             return redirect()->route('admin.myPage');

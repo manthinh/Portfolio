@@ -8,6 +8,7 @@
 
     <h1>ログイン画面</h1>        
     <a href="{{ route('sign-up.form')}}">新規登録はこちら</a>
+    <a href="{{ route('admin.loginIndex')}}">developer only</a>
 
     <p>登録済みのEメール、パスワードをご入力の上「ログイン」ボタンを押してください。</p>
 
