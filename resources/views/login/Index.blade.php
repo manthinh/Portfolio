@@ -20,6 +20,6 @@
     @if ($errors->has('password'))
         <li>{{$errors->first('password')}}</li>
     @endif
-    <input type="submit" value="ログイン"　class = button>
+    <input type="submit" value="ログイン">
 </form>
 @endsection

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginUserCreateRequest;
-use App\Http\Requests\LoginRequest;
 
 
 use App\Models\User;
@@ -21,9 +20,7 @@ class LoginController extends Controller
     public function signIn(Request $request) {
         $email =  $request->input('email');
         $password =  $request->input('password');
-        // dd($validated['password']);
         $userInfo = User::where('email',$email)->first();
-        // dd($userInfo);
         if ($userInfo && Hash::check($password,$userInfo->password)) {
             $request->session()->put('doneLogin',$userInfo->id);
             return redirect()->route('myPage.myPage');
@@ -43,9 +40,8 @@ class LoginController extends Controller
     
     public function signUp(LoginUserCreateRequest $request) {
         $validated = $request->validated();
-        $value = $request->session()->put('usersInfo',$validated);
-        // dd($validated,$value);
-        $user = User::create([
+        $request->session()->put('usersInfo',$validated);
+        User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'address' => $validated['address'],
