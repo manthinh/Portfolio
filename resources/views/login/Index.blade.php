@@ -12,14 +12,10 @@
     <p>登録済みのEメール、パスワードをご入力の上「ログイン」ボタンを押してください。</p>
 
     <input type="id" name="email" placeholder="Eメール" required>
-    @if ($errors->has('email'))
-        <li>{{$errors->first('email')}}</li>
-    @endif
+    
 
     <input type="password" name="password" placeholder="パスワード" required>
-    @if ($errors->has('password'))
-        <li>{{$errors->first('password')}}</li>
-    @endif
+    
     <input type="submit" value="ログイン"　class = button>
 </form>
 @endsection

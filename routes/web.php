@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -34,7 +35,14 @@ Route::name('login.')->group(function (){
 
 // マイページ
 Route::name('myPage.')->group(function (){
-    Route::get('myPage',[LoginController::class, 'myPage'])->name('myPage');
+    Route::get('/myPage',[LoginController::class, 'myPage'])->name('myPage');
+});
+
+//管理者ログイン画面
+Route::name('admin.')->group(function (){
+    Route::get('/admin',[AdminController::class, 'loginIndex'])->name('loginIndex');
+    Route::post('/admin/sign-in',[AdminController::class, 'signIn'])->name('signIn');
+    Route::get('/admin/myPage',[AdminController::class, 'myPage'])->name('myPage');
 });
 
 

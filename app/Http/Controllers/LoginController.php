@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginUserCreateRequest;
-use App\Http\Requests\LoginRequest;
+
 
 
 use App\Models\User;
@@ -21,7 +21,6 @@ class LoginController extends Controller
     public function signIn(Request $request) {
         $email =  $request->input('email');
         $password =  $request->input('password');
-        // dd($validated['password']);
         $userInfo = User::where('email',$email)->first();
         // dd($userInfo);
         if ($userInfo && Hash::check($password,$userInfo->password)) {
@@ -32,7 +31,7 @@ class LoginController extends Controller
         return redirect()->route('loginIndex');
         
     }
-    
+
     public function myPage() {
     return view('myPage');
     }
