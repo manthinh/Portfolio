@@ -5,7 +5,7 @@
 
 
 <h1>会員登録完了</h1>
-<h3><a href="{{ route('loginIndex')}}">ログイン画面に戻る</a></h3>
+<p><a href="{{ route('loginIndex')}}">ログイン画面に戻る</a></p>
 <h2>登録内容確認</h2>
 
 <ul>

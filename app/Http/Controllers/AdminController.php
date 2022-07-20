@@ -11,6 +11,12 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
+    /**
+     * 管理者ログイン機能
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function signIn(Request $request) {
         $email = $request->input('email');
         $password = $request->input('password');
@@ -23,6 +29,11 @@ class AdminController extends Controller
         return redirect()->route('admin.loginIndex');
     }
 
+    /**
+     * マイページ表示
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function myPage() {
         return view('admin.myPage');
     }
