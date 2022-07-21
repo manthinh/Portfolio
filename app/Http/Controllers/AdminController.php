@@ -40,4 +40,14 @@ class AdminController extends Controller
     {
         return view('admin.myPage');
     }
+
+
+    /**
+     * 服の投稿機能
+     *
+     * @return void
+     */
+    public function clothPost() {
+
+    }
 }
