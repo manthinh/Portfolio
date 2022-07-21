@@ -49,6 +49,8 @@ class AdminController extends Controller
      */
     public function clothPost()
     {
-        return view('admin.myPage');
+        clothPost::create([
+
+        ]);
     }
 }
