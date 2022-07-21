@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function loginIndex() {
+    public function loginIndex()
+    {
         return view('admin.index');
     }
 
@@ -17,15 +18,16 @@ class AdminController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function signIn(Request $request) {
+    public function signIn(Request $request)
+    {
         $email = $request->input('email');
         $password = $request->input('password');
-        $adminsInfo = Admin::where('email',$email)->first();
+        $adminsInfo = Admin::where('email', $email)->first();
         if ($adminsInfo && $password) {
-            $request->session()->put('doneLogin',$adminsInfo->id);
+            $request->session()->put('doneLogin', $adminsInfo->id);
             return redirect()->route('admin.myPage');
         }
-        session()->flash('flash_massage','登録済みのEメールとパスワードが一致しません。');
+        session()->flash('flash_massage', '登録済みのEメールとパスワードが一致しません。');
         return redirect()->route('admin.loginIndex');
     }
 
@@ -34,7 +36,8 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function myPage() {
+    public function myPage()
+    {
         return view('admin.myPage');
     }
 }
