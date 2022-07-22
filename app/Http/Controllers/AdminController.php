@@ -76,7 +76,7 @@ class AdminController extends Controller
         $image_type = $request->input('image_type');
         $img = $request->file('image_path');
         $path = $img->store('img', 'public');
-        clothPost::create([
+        $post = clothPost::create([
             'image_path' => $path,
             'cloth_id' => $cloth_id,
             'name' => $name,
@@ -84,6 +84,9 @@ class AdminController extends Controller
             'image_type' => $image_type,
         ]);
 
+        $request->session()->put('clothInfo',$post->cloth_id);
+
+        session()->flash('completed_msg','服の投稿が完了しました。');
         return redirect()->route('cloth.create');
     }
 }
