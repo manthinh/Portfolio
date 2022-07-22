@@ -16,8 +16,8 @@ class CreateClothPostsTable extends Migration
         Schema::create('cloth_posts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('cloth_id');
             $table->string('image_path');
+            $table->integer('cloth_id');
             $table->string('name');
             $table->string('description');
             $table->string('image_type');

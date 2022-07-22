@@ -25,7 +25,7 @@ Route::name('sign-up.')->group(function () {
     Route::get('/sign-up',[LoginController::class, 'form'])->name('form');
     Route::post('/store/sign-up',[LoginController::class, 'signUp'])->name('signUp');
     Route::get('/store/sign-up/confirm',[LoginController::class, 'confirm'])->name('confirm');
-    
+
 });
 
 // ログイン機能
@@ -43,6 +43,13 @@ Route::name('admin.')->group(function (){
     Route::get('/admin',[AdminController::class, 'loginIndex'])->name('loginIndex');
     Route::post('/admin/sign-in',[AdminController::class, 'signIn'])->name('signIn');
     Route::get('/admin/myPage',[AdminController::class, 'myPage'])->name('myPage');
+});
+
+//服の投稿機能
+Route::name('cloth.')->group(function (){
+    Route::get('/allClothes',[AdminController::class, 'index'])->name('index');
+    Route::get('/cloth_post',[AdminController::class, 'create'])->name('create');
+    Route::post('/clothStore',[AdminController::class, 'store'])->name('store');
 });
 
 
