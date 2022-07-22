@@ -49,7 +49,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('clothesPosts.index');
+        $items = clothPost::get();
+        return view('clothesPosts.index',compact('items'));
     }
 
     /**
