@@ -19,6 +19,8 @@
             <input type="text" name="image_type" placeholder="画像の拡張子">
         </label>
         <input type="submit" value="アップロード">
-
     </form>
+    <p>
+        <a href="{{ route('admin.myPage') }}">管理者ページに戻る</a>
+    </p>
 @endsection
